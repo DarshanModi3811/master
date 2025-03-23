@@ -16,7 +16,7 @@ private:
 public:
     GameController();                                  // Default constructor
     void startGame();                                  // Starts the game
-    void processInput(const std::string& input);      // Processes user input
+    void processInput(int frameNumber);                // Processes user input
     void displayScores();                              // Displays the scores
 };
 
