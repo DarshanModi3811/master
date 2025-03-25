@@ -4,7 +4,7 @@
 using namespace std;
 // Display the welcome message
 void displayWelcomeMessage() {
-    cout << "🎳 Welcome to the Bowling Score Calculator! 🎳\n";
+    cout << "Welcome to the Bowling Score Calculator!\n";
     cout << "Rules:\n";
     cout << " - Enter rolls for each frame (e.g., 'X', '7 2', '5 /').\n";
     cout << " - Strikes ('X') end the frame early.\n";
@@ -25,7 +25,7 @@ int main() {
         }
 
         gameController.displayScores(); // Display the final scores
-        cout << "🎉 Thanks for playing! 🎉\n";
+        cout << "Thanks for playing!\n";
     } catch (const exception& e) {
         cerr << "An unexpected error occurred: " << e.what() << "\n";
     }

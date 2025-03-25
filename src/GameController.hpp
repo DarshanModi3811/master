@@ -9,9 +9,9 @@
 
 class GameController {
 private:
-    std::vector<std::shared_ptr<FrameBase>> frames;    // Polymorphic collection of frames
-    std::unique_ptr<ScoreCalculator> scoreCalculator; // Scoring logic
-    std::unique_ptr<IOHandler> ioHandler;             // Input/output handler
+    std::vector<std::shared_ptr<FrameBase>> m_frames;    // Polymorphic collection of frames
+    std::unique_ptr<ScoreCalculator> m_scoreCalculator; // Scoring logic
+    std::unique_ptr<IOHandler> m_ioHandler;             // Input/output handler
 
 public:
     GameController();                                  // Default constructor

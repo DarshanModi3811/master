@@ -12,3 +12,21 @@ int SpareFrame::calculateScore() const {
 void SpareFrame::applyBonus(int bonusValue) {
     bonus = bonusValue;
 }
+
+// Returns the first roll
+int SpareFrame::getFirstRoll() const {
+    return roll1;
+}
+
+// Returns the second roll
+int SpareFrame::getSecondRoll() const {
+    return roll2;
+}
+
+void SpareFrame::setThirdRoll(int roll3) {
+    bonus = roll3;
+}
+
+int SpareFrame::getThirdRoll() const {
+    return bonus;
+}
