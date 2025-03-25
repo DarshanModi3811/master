@@ -10,6 +10,10 @@ public:
     OpenFrame(int roll1, int roll2);  // Constructor initializes rolls
     int calculateScore() const override;  // Calculates score (no bonuses)
     void applyBonus(int bonus) override;  // Does nothing, as open frames have no bonuses
+    int getFirstRoll() const override;  // Returns the first roll
+    int getSecondRoll() const override;  // Returns the second roll
+    void setThirdRoll(int roll3) override;  // Add this line
+    int getThirdRoll() const override;  // Add this line
 };
 
 #endif // OPEN_FRAME_HPP

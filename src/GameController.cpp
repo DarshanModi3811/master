@@ -6,10 +6,11 @@
 #include "../src/Frame/SpareFrame.hpp"
 
 using namespace std;
+
 // Default constructor
 GameController::GameController() {
-    scoreCalculator = make_unique<ScoreCalculator>();
-    ioHandler = make_unique<IOHandler>();
+    m_scoreCalculator = make_unique<ScoreCalculator>();
+    m_ioHandler = make_unique<IOHandler>();
 }
 
 // Starts the game
@@ -39,7 +40,7 @@ void GameController::processInput(int frameNumber) {
                 if (!frame) {
                     throw runtime_error("Failed to create StrikeFrame.");
                 }
-                frames.push_back(frame); // Add StrikeFrame
+                m_frames.push_back(frame); // Add StrikeFrame
                 cout << "Strike! Moving to the next frame...\n";
                 return; // Move to the next frame
             }
@@ -62,7 +63,7 @@ void GameController::processInput(int frameNumber) {
                 if (!frame) {
                     throw runtime_error("Failed to create frame.");
                 }
-                frames.push_back(frame); // Add the frame
+                m_frames.push_back(frame); // Add the frame
                 return; // Move to the next frame
             }
         }
@@ -90,7 +91,8 @@ void GameController::processInput(int frameNumber) {
                 throw runtime_error("Failed to create frame.");
             }
             frame->applyBonus(roll3); // Apply the bonus roll
-            frames.push_back(frame); // Add the 10th frame
+            frame->setThirdRoll(roll3); // Set the third roll
+            m_frames.push_back(frame); // Add the 10th frame
             return; // End the game
         }
     } catch (const exception& e) {
@@ -101,8 +103,8 @@ void GameController::processInput(int frameNumber) {
 
 // Displays the scores
 void GameController::displayScores() {
-    scoreCalculator->applyBonuses(frames);
-    ioHandler->displayFrameScores(frames);
-    int totalScore = scoreCalculator->calculateTotalScore(frames);
-    ioHandler->displayTotalScore(totalScore);
+    m_scoreCalculator->applyBonuses(m_frames);
+    m_ioHandler->displayFrameScores(m_frames);
+    int totalScore = m_scoreCalculator->calculateTotalScore(m_frames);
+    m_ioHandler->displayTotalScore(totalScore);
 }
