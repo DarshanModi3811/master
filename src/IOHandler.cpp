@@ -19,25 +19,6 @@ bool IOHandler::validateInput(const string& input) {
     }
 }
 
-// // Parses user input into scores
-// vector<int> IOHandler::parseInput(const string& input) {
-//     vector<int> rolls;
-//     istringstream stream(input);
-//     char token;
-//     while (stream >> token) {
-//         if (token == 'X') {
-//             rolls.push_back(10); // Strike
-//         } else if (token == '/') {
-//             if (!rolls.empty()) {
-//                 rolls.back() = 10 - rolls.back(); // Spare
-//             }
-//         } else {
-//             rolls.push_back(token - '0'); // Convert char to int
-//         }
-//     }
-//     return rolls;
-// }
-
 // Displays frame-by-frame scores
 void IOHandler::displayFrameScores(const vector<shared_ptr<FrameBase>>& frames) const {
     for (size_t i = 0; i < frames.size(); ++i) {
