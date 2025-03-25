@@ -18,14 +18,20 @@ void ScoreCalculator::applyBonuses(vector<shared_ptr<FrameBase>>& frames) {
             if (i < 9) {
                 if (dynamic_cast<StrikeFrame*>(frames[i].get())) {
                     if (i + 1 < frames.size()) {
+                        // First bonus: First roll of the next frame
                         frames[i]->applyBonus(frames[i + 1]->getFirstRoll());
-                        if (i + 2 < frames.size()) {
+                
+                        // Second bonus: Either the second roll of the next frame or the first roll of the frame after that
+                        if (dynamic_cast<StrikeFrame*>(frames[i + 1].get()) && i + 2 < frames.size()) {
+                            // If the next frame is a strike, take the first roll of the frame after that
                             frames[i]->applyBonus(frames[i + 2]->getFirstRoll());
-                        } else if (i + 1 < frames.size()) {
+                        } else {
+                            // Otherwise, take the second roll of the next frame
                             frames[i]->applyBonus(frames[i + 1]->getSecondRoll());
                         }
                     }
-                } else if (dynamic_cast<SpareFrame*>(frames[i].get())) {
+                }
+                else if (dynamic_cast<SpareFrame*>(frames[i].get())) {
                     if (i + 1 < frames.size()) {
                         frames[i]->applyBonus(frames[i + 1]->getFirstRoll());
                     }
