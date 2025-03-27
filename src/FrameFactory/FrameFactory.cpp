@@ -25,18 +25,3 @@ std::shared_ptr<FrameBase> FrameFactory::createFrame(int roll1, int roll2) {
         return nullptr;
     }
 }
-
-// std::shared_ptr<FrameBase> FrameFactory::createFrame(int roll1, int roll2, int roll3) { // Add this method
-//     if (roll1 == 10) {
-//         auto frame = std::make_shared<StrikeFrame>(roll1);
-//         frame->applyBonus(roll2);
-//         frame->applyBonus(roll3);
-//         return frame;
-//     } else if (roll1 + roll2 == 10) {
-//         auto frame = std::make_shared<SpareFrame>(roll1, roll2);
-//         frame->applyBonus(roll3);
-//         return frame;
-//     } else {
-//         return std::make_shared<OpenFrame>(roll1, roll2);
-//     }
-// }

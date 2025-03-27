@@ -16,7 +16,6 @@ public:
     int getSecondRoll() const override;  // Returns the second roll
     void setThirdRoll(int roll3) override; // to cater for 3rd roll
     int getThirdRoll() const override;  // Returns the third roll
-    // int getThirdRoll() const override; // Add this line
 };
 
 #endif // STRIKE_FRAME_HPP

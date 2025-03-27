@@ -7,8 +7,7 @@
 #include "Frame/FrameBase.hpp"  // Updated to use the polymorphic base class
 class IOHandler {
 public:
-    bool validateInput(const std::string& input); // Validates user input
-    // std::vector<int> parseInput(const std::string& input); // Parses input into roll scores
+    bool parseRolls(const std::string& input, int& roll1, int& roll2, int& roll3, int frameNumber); // Parses and validates rolls from a string
     void displayFrameScores(const std::vector<std::shared_ptr<FrameBase>>& frames) const; // Displays polymorphic frame scores
     void displayTotalScore(int totalScore) const; // Displays the total score
 };
