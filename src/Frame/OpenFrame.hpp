@@ -12,8 +12,8 @@ public:
     void applyBonus(int bonus) override;  // Does nothing, as open frames have no bonuses
     int getFirstRoll() const override;  // Returns the first roll
     int getSecondRoll() const override;  // Returns the second roll
-    void setThirdRoll(int roll3) override;  // Add this line
-    int getThirdRoll() const override;  // Add this line
+    void setThirdRoll(int roll3) override;  // for 3rd roll
+    int getThirdRoll() const override;  // for 3rd roll
 };
 
 #endif // OPEN_FRAME_HPP

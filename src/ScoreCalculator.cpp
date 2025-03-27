@@ -8,6 +8,7 @@ using namespace std;
 
 // Adds bonuses for strikes/spares
 void ScoreCalculator::applyBonuses(vector<shared_ptr<FrameBase>>& frames) {
+    lock_guard<mutex> lock(mtx);
     try {
         for (size_t i = 0; i < frames.size(); ++i) {
             if (!frames[i]) {
@@ -54,6 +55,7 @@ void ScoreCalculator::applyBonuses(vector<shared_ptr<FrameBase>>& frames) {
 
 // Calculates the total score
 int ScoreCalculator::calculateTotalScore(const vector<shared_ptr<FrameBase>>& frames) const {
+    lock_guard<mutex> lock(mtx);
     int totalScore = 0;
     for (const auto& frame : frames) {
         totalScore += frame->calculateScore();

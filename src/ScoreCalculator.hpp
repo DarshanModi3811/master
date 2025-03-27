@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <memory>
+#include <mutex>
 #include "../src/Frame/FrameBase.hpp" // Polymorphic base class
 
 class ScoreCalculator {
@@ -12,6 +13,9 @@ public:
 
     // Calculates the total score of all frames
     int calculateTotalScore(const std::vector<std::shared_ptr<FrameBase>>& frames) const;
+
+    private:
+    mutable std::mutex mtx;
 };
 
 #endif // SCORE_CALCULATOR_HPP
